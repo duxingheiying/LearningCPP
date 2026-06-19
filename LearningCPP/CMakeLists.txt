@@ -1,0 +1,10 @@
+﻿
+file(GLOB_RECURSE SRC_CODE ${CMAKE_CURRENT_LIST_DIR}/*.h
+	${CMAKE_CURRENT_LIST_DIR}/*.cpp)
+
+add_executable (LearningCPP ${SRC_CODE})
+
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET LearningCPP PROPERTY CXX_STANDARD 17)
+endif()
+
