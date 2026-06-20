@@ -11,4 +11,4 @@ set(CMAKE_CXX_STANDARD 20)
 
 project ("LearningCPP")
 
-add_subdirectory ("LearningCPP")
+add_subdirectory ("src")
