@@ -1,6 +1,6 @@
-# .vs
+.vs
 out
 CMakePresets.json
-# *.obj
-# *.pch
-# *.pdb
+*.obj
+*.pch
+*.pdb
