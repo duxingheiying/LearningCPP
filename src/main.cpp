@@ -127,6 +127,37 @@ void f()
 	}
 }
 
+int solution(std::vector<int>& A) {
+	// Implement your solution here
+
+	std::sort(A.begin(), A.end(), [](int a, int b) {return a < b; });
+
+	int temp_value{};
+	for (size_t i = 0; i < A.size(); i++) {
+		if (i == 0) {
+			temp_value = A[i];
+		}
+		else {
+			if (A[i] - temp_value ==1) {
+				temp_value = A[i];
+			}
+			else if (A[i] - temp_value == 0) {
+				temp_value = A[i];
+			}
+			else {
+				break;
+			}
+		}
+	}
+
+	if (temp_value >= 0) {
+		return temp_value + 1;
+	}
+	else {
+		return 1;
+	}
+}
+
 int main()
 {
 	//std::jthread jthread;
@@ -192,22 +223,27 @@ int main()
 	//shear_thread_1.join();
 	//shear_thread_2.join();
 
-	// test atomic
-	{
-		std::vector<std::thread> pool;
-		for (int n = 0; n < 10; ++n) {
-			pool.emplace_back(f);
-		}
-		for (auto& th : pool) {
-			th.join();
-		}
-	}
+	//// test atomic
+	//{
+	//	std::vector<std::thread> pool;
+	//	for (int n = 0; n < 10; ++n) {
+	//		pool.emplace_back(f);
+	//	}
+	//	for (auto& th : pool) {
+	//		th.join();
+	//	}
+	//}
 
-	std::cout << " The atomic counter is " << acnt << "\n"
-		<< "The non-atomic counter is " << cnt << "\n";
+	//std::cout << " The atomic counter is " << acnt << "\n"
+	//	<< "The non-atomic counter is " << cnt << "\n";
 
 	//sortData();
 	//tyCatch();
 
+	std::vector<int> A{ 1, 3, 6, 4, 1, 2 };
+
+	std::cout << *A.rbegin() << std::endl;;
+
 	return 0;
 }
+
